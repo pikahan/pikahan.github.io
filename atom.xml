@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://www.pikahan.com/"/>
+  <updated>2020-05-30T06:05:52.827Z</updated>
+  <id>http://www.pikahan.com/</id>
+  
+  <author>
+    <name>Pikahan</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac上让终端走代理</title>
+    <link href="http://www.pikahan.com/2020/05/30/Mac%E4%B8%8A%E8%AE%A9%E7%BB%88%E7%AB%AF%E8%B5%B0%E4%BB%A3%E7%90%86/"/>
+    <id>http://www.pikahan.com/2020/05/30/Mac上让终端走代理/</id>
+    <published>2020-05-30T04:46:56.000Z</published>
+    <updated>2020-05-30T06:05:52.827Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在我使用trojan的时候我发现MacOS系统的终端默认是不走代理的, 要走代理的话需要进行额外的配置, 下面我来记录一下成功让终端走代理的配置过程。&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>记录一次koa热加载功能的配置</title>
+    <link href="http://www.pikahan.com/2020/03/08/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1koa%E7%83%AD%E5%8A%A0%E8%BD%BD%E5%8A%9F%E8%83%BD%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
+    <id>http://www.pikahan.com/2020/03/08/记录一次koa热加载功能的配置/</id>
+    <published>2020-03-08T03:46:42.000Z</published>
+    <updated>2020-03-08T03:48:21.589Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+      <category term="koa" scheme="http://www.pikahan.com/tags/koa/"/>
+    
+      <category term="webpack" scheme="http://www.pikahan.com/tags/webpack/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>node文件扫描动态加载路由koa-router版</title>
+    <link href="http://www.pikahan.com/2020/03/04/node%E6%96%87%E4%BB%B6%E6%89%AB%E6%8F%8F%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BD%E8%B7%AF%E7%94%B1koa-router%E7%89%88/"/>
+    <id>http://www.pikahan.com/2020/03/04/node文件扫描动态加载路由koa-router版/</id>
+    <published>2020-03-04T10:53:05.000Z</published>
+    <updated>2020-03-04T10:55:05.959Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前言&lt;br&gt;之前做一个项目的时候后端要提供的服务众多, 所以路由也十分杂乱, 因此我将路由拆成了好几个文件.。但是这又会引出新问题——每增加一条路由就又要手动在路由入口处(如index.js)添加一遍。&lt;/p&gt;
+&lt;p&gt;显然, 这样不符合程序员遵循程序员追求的简洁之美。&lt;/p&gt;
+&lt;p&gt;因此我也自然而然想到了通过node遍历文件的方式进行动态加载路由。&lt;/p&gt;
+&lt;p&gt;为了解释清楚这么做的缘由我先举个以前做法的例子，如果想要直接看最终结果的可以跳转到例子v2&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="koa" scheme="http://www.pikahan.com/tags/koa/"/>
+    
+      <category term="nodejs" scheme="http://www.pikahan.com/tags/nodejs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js中判断数据的类型</title>
+    <link href="http://www.pikahan.com/2018/10/07/js%E4%B8%AD%E5%88%A4%E6%96%AD%E6%95%B0%E6%8D%AE%E7%9A%84%E7%B1%BB%E5%9E%8B/"/>
+    <id>http://www.pikahan.com/2018/10/07/js中判断数据的类型/</id>
+    <published>2018-10-07T10:47:24.000Z</published>
+    <updated>2018-10-07T10:50:37.472Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;js中的数据类型&quot;&gt;&lt;a href=&quot;#js中的数据类型&quot; class=&quot;headerlink&quot; title=&quot;js中的数据类型&quot;&gt;&lt;/a&gt;js中的数据类型&lt;/h2&gt;&lt;p&gt;js中一共有7种数据类型&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;简单数据类型(基本数据类型) :Undefined, Null, Boolean, Number, String, Symbol)&lt;/li&gt;
+&lt;li&gt;复杂数据类型 Object (Object, Array, Function等)&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="js" scheme="http://www.pikahan.com/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js设计模式--策略模式</title>
+    <link href="http://www.pikahan.com/2018/10/07/js%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://www.pikahan.com/2018/10/07/js设计模式-策略模式/</id>
+    <published>2018-10-07T01:42:01.000Z</published>
+    <updated>2018-10-07T01:44:29.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;这个系列的文章都是参考、改写自《JavaScript设计模式与开发实践》, 可是说是读完这本书后的读书笔记&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;策略模式定义&quot;&gt;&lt;a href=&quot;#策略模式定义&quot; class=&quot;headerlink&quot; title=&quot;策略模式定义&quot;&gt;&lt;/a&gt;策略模式定义&lt;/h2&gt;&lt;p&gt;定义一系列算法, 把它们一个个封装起来, 并且是它们可以相互替换&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="设计模式" scheme="http://www.pikahan.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js设计模式--单例模式</title>
+    <link href="http://www.pikahan.com/2018/10/05/js%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/"/>
+    <id>http://www.pikahan.com/2018/10/05/js设计模式-单例模式/</id>
+    <published>2018-10-05T06:43:59.000Z</published>
+    <updated>2018-10-07T01:43:06.674Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;这个系列的文章都是参考、改写自《JavaScript设计模式与开发实践》, 可是说是读完这本书后的读书笔记&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;单例模式定义&quot;&gt;&lt;a href=&quot;#单例模式定义&quot; class=&quot;headerlink&quot; title=&quot;单例模式定义&quot;&gt;&lt;/a&gt;单例模式定义&lt;/h2&gt;&lt;p&gt; 保证一个类仅有一个实例, 并提供一个访问它的全局访问点&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="设计模式" scheme="http://www.pikahan.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《深入理解计算机系统》配套实验4: Cache lab</title>
+    <link href="http://www.pikahan.com/2018/08/23/%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E3%80%8B%E9%85%8D%E5%A5%97%E5%AE%9E%E9%AA%8C4-Cache-lab/"/>
+    <id>http://www.pikahan.com/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/</id>
+    <published>2018-08-23T03:03:20.000Z</published>
+    <updated>2018-08-23T04:13:52.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;以下操作均在ubuntu 18.04下完成&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;做这个实验时感觉比前几个实验难了不少,我花了很长的时间查了不少资料才把它完成,但做完后发现这个实验其实只要一步一步慢慢来其实不难,只是花费的时间会长一些&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="CSAPP" scheme="http://www.pikahan.com/tags/CSAPP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《深入理解计算机系统》配套实验3: Attack lab</title>
+    <link href="http://www.pikahan.com/2018/08/12/%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E3%80%8B%E9%85%8D%E5%A5%97%E5%AE%9E%E9%AA%8C3-Attack-lab/"/>
+    <id>http://www.pikahan.com/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/</id>
+    <published>2018-08-12T03:18:54.000Z</published>
+    <updated>2018-08-12T05:21:23.579Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;以下操作均在ubuntu 18.04下完成 &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;下载&lt;a href=&quot;http://csapp.cs.cmu.edu/3e/target1.tar&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;attack lab&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;阅读实验指导&lt;a href=&quot;http://csapp.cs.cmu.edu/3e/bomblab.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Writeup&lt;/a&gt;(不看的话很多操作都不知道是什么)&lt;/li&gt;
+&lt;li&gt;了解gdb的使用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;参考链接&lt;a href=&quot;http://csapp.cs.cmu.edu/2e/docs/gdbnotes-x86-64.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;gdbnotes&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;Part-I-Code-Injection-Attacks&quot;&gt;&lt;a href=&quot;#Part-I-Code-Injection-Attacks&quot; class=&quot;headerlink&quot; title=&quot;Part I: Code Injection Attacks&quot;&gt;&lt;/a&gt;Part I: Code Injection Attacks&lt;/h1&gt;
+    
+    </summary>
+    
+    
+      <category term="CSAPP" scheme="http://www.pikahan.com/tags/CSAPP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>《深入理解计算机系统》配套实验2: Bomb lab</title>
+    <link href="http://www.pikahan.com/2018/08/08/%E3%80%8A%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E3%80%8B%E9%85%8D%E5%A5%97%E5%AE%9E%E9%AA%8C2-Bomb-lab/"/>
+    <id>http://www.pikahan.com/2018/08/08/《深入理解计算机系统》配套实验2-Bomb-lab/</id>
+    <published>2018-08-08T01:48:08.000Z</published>
+    <updated>2018-08-08T03:21:29.922Z</updated>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;以下操作均在ubuntu 18.04下完成&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;阅读csapp第三章&lt;/li&gt;
+&lt;li&gt;了解gdb的使用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;参考链接&lt;a href=&quot;http://csapp.cs.cmu.edu/2e/docs/gdbnotes-x86-64.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;gdbnotes&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;先安装gcc &lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install gcc&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;反汇编&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;objdump -d bomb &amp;gt; bomb.txt &lt;span class=&quot;comment&quot;&gt;# 转换成文本文件便于调试&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="CSAPP" scheme="http://www.pikahan.com/tags/CSAPP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用mosquitto部署MQTT服务器</title>
+    <link href="http://www.pikahan.com/2018/07/18/%E4%BD%BF%E7%94%A8mosquitto%E9%83%A8%E7%BD%B2MQTT%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>http://www.pikahan.com/2018/07/18/使用mosquitto部署MQTT服务器/</id>
+    <published>2018-07-18T01:08:03.000Z</published>
+    <updated>2018-07-24T01:11:23.074Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;最近项目中有用到MQTT协议,此时手头上正好有台闲置的服务器,因此顺带了解了一下如何搭建MQTT服务器,百度一番后决定使用mosquitto部署.&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="MQTT" scheme="http://www.pikahan.com/tags/MQTT/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>学习CSAPP</title>
+    <link href="http://www.pikahan.com/2018/06/21/%E5%AD%A6%E4%B9%A0CSAPP/"/>
+    <id>http://www.pikahan.com/2018/06/21/学习CSAPP/</id>
+    <published>2018-06-21T11:20:49.000Z</published>
+    <updated>2018-08-15T03:25:49.177Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+      <category term="随笔" scheme="http://www.pikahan.com/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+      <category term="CSAPP" scheme="http://www.pikahan.com/tags/CSAPP/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用json-server和faker.js模拟REST API的调用</title>
+    <link href="http://www.pikahan.com/2018/05/21/json-serverAndFaker/"/>
+    <id>http://www.pikahan.com/2018/05/21/json-serverAndFaker/</id>
+    <published>2018-05-21T08:16:23.000Z</published>
+    <updated>2018-05-21T08:35:54.494Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前端经常要测试一些需要后台API支持的业务逻辑，如果此时后台API还未开发完成怎么办呢？&lt;br&gt;这个时候就轮到json-server登场了&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="json-server" scheme="http://www.pikahan.com/tags/json-server/"/>
+    
+      <category term="faker.js" scheme="http://www.pikahan.com/tags/faker-js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从零开始使用Hexo + Github Pages搭建你的个人博客(2)</title>
+    <link href="http://www.pikahan.com/2018/05/19/setUpBlog2/"/>
+    <id>http://www.pikahan.com/2018/05/19/setUpBlog2/</id>
+    <published>2018-05-19T08:45:02.000Z</published>
+    <updated>2018-07-23T07:40:14.171Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;在前面一篇&lt;a href=&quot;http://pikahan.com/2018/05/19/setUpBlog1/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;教程&lt;/a&gt;中，我简单的介绍了如何搭建自己的个人博客，在这一篇教程中，我将给博客增加一些实用的插件。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://www.pikahan.com/tags/Hexo/"/>
+    
+      <category term="Github Pages" scheme="http://www.pikahan.com/tags/Github-Pages/"/>
+    
+      <category term="来必力" scheme="http://www.pikahan.com/tags/%E6%9D%A5%E5%BF%85%E5%8A%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从零开始使用Hexo + Github Pages搭建你的个人博客(1)</title>
+    <link href="http://www.pikahan.com/2018/05/19/setUpBlog1/"/>
+    <id>http://www.pikahan.com/2018/05/19/setUpBlog1/</id>
+    <published>2018-05-19T07:40:17.855Z</published>
+    <updated>2018-05-19T08:48:43.898Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;虽然网上关于Github Pages搭建个人博客的教程已经很多了，但是种类繁多，让人眼花缭乱，很多像我一样的小白可能会折腾很久，因此我写下这样一篇较为完整的教程，希望能帮助到一些像我一样的小白。&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Hexo" scheme="http://www.pikahan.com/tags/Hexo/"/>
+    
+      <category term="Github Pages" scheme="http://www.pikahan.com/tags/Github-Pages/"/>
+    
+  </entry>
+  
+</feed>

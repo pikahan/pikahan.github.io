@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Disallow: /vendors/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+
+Sitemap: http://www.pikahan.com/sitemap.xml
+Sitemap: http://www.pikahan.com/baidusitemap.xml
