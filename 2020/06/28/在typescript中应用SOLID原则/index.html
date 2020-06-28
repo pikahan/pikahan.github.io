@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.pikahan.com">
-  <title>Tag: CSAPP | Hexo</title>
+  <title>在typescript中应用SOLID原则 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://www.pikahan.com/tags/CSAPP/index.html">
+  <meta name="description" content="SOLID是面向对象编程和面向对象设计的五个重要原则的英文首字母组成的。  单一职责原则（SRP）: 表明软件组件(函数、类、模块)必须专注于单一的任务(只有单一的职责) 开放封闭原则（OCP）: 表明软件设计时必须时刻考虑到代码可能的发展, 要具有扩展性, 但程序的发展必须最少地修改已有的代码 里氏替换原则（LSP）: 表明只要继承的是用一个接口, 程序里容易一个类都可以被其他的类替换。在替换完">
+<meta name="keywords" content="TypeScript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在typescript中应用SOLID原则">
+<meta property="og:url" content="http://www.pikahan.com/2020/06/28/在typescript中应用SOLID原则/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="SOLID是面向对象编程和面向对象设计的五个重要原则的英文首字母组成的。  单一职责原则（SRP）: 表明软件组件(函数、类、模块)必须专注于单一的任务(只有单一的职责) 开放封闭原则（OCP）: 表明软件设计时必须时刻考虑到代码可能的发展, 要具有扩展性, 但程序的发展必须最少地修改已有的代码 里氏替换原则（LSP）: 表明只要继承的是用一个接口, 程序里容易一个类都可以被其他的类替换。在替换完">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-06-28T10:31:14.171Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="在typescript中应用SOLID原则">
+<meta name="twitter:description" content="SOLID是面向对象编程和面向对象设计的五个重要原则的英文首字母组成的。  单一职责原则（SRP）: 表明软件组件(函数、类、模块)必须专注于单一的任务(只有单一的职责) 开放封闭原则（OCP）: 表明软件设计时必须时刻考虑到代码可能的发展, 要具有扩展性, 但程序的发展必须最少地修改已有的代码 里氏替换原则（LSP）: 表明只要继承的是用一个接口, 程序里容易一个类都可以被其他的类替换。在替换完">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -171,178 +176,225 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-在typescript中应用SOLID原则" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      在typescript中应用SOLID原则
+    </h1>
+  
+
+        
+        <a href="/2020/06/28/在typescript中应用SOLID原则/" class="archive-article-date">
+  	<time datetime="2020-06-28T10:29:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-28</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>SOLID是面向对象编程和面向对象设计的五个重要原则的英文首字母组成的。</p>
+<ul>
+<li>单一职责原则（SRP）: 表明软件组件(函数、类、模块)必须专注于单一的任务(只有单一的职责)</li>
+<li>开放封闭原则（OCP）: 表明软件设计时必须时刻考虑到代码可能的发展, 要具有扩展性, 但程序的发展必须最少地修改已有的代码</li>
+<li>里氏替换原则（LSP）: 表明只要继承的是用一个接口, 程序里容易一个类都可以被其他的类替换。在替换完后, 不需要其他额外的工作程序就能像原来一样运行。</li>
+<li>接口隔离原则（ISP）: 表明我们应该讲那些非常大的接口拆分成一些小的更具体的接口， 这样客户端就只需关系他们需要用到的接口。</li>
+<li>依赖倒置原则（DIP）: 表明一个方法应该遵从依赖于抽象而不是一个实例的概念。</li>
+</ul>
+<p>下面我一个一个举例子<br><a id="more"></a></p>
+<h2 id="单一职责原则"><a href="#单一职责原则" class="headerlink" title="单一职责原则"></a>单一职责原则</h2><blockquote>
+<p>表明软件组件(函数、类、模块)必须专注于单一的任务(只有单一的职责)</p>
+</blockquote>
+<p>有如下一个类<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> User &#123;</span><br><span class="line">  <span class="keyword">private</span> username: <span class="built_in">string</span></span><br><span class="line">  <span class="keyword">private</span> password: <span class="built_in">string</span></span><br><span class="line">  <span class="keyword">private</span> phoneNumber: <span class="built_in">string</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">username: <span class="built_in">string</span>, password: <span class="built_in">string</span>, phoneNumber: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.username = username</span><br><span class="line">    <span class="keyword">this</span>.password = password</span><br><span class="line">    <span class="keyword">this</span>.phoneNumber = phoneNumber</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  login() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'login'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果此时需要加上电话号码的验证逻辑, 我们很容易写出如下的代码</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> User &#123;</span><br><span class="line">  <span class="keyword">private</span> username: <span class="built_in">string</span></span><br><span class="line">  <span class="keyword">private</span> password: <span class="built_in">string</span></span><br><span class="line">  <span class="keyword">private</span> phoneNumber: <span class="built_in">string</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">username: <span class="built_in">string</span>, password: <span class="built_in">string</span>, phoneNumber: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.username = username</span><br><span class="line">    <span class="keyword">this</span>.password = password</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.validatePhoneNumber(phoneNumber)) &#123;</span><br><span class="line">      <span class="keyword">this</span>.phoneNumber = phoneNumber</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'invalid phoneNumber'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  validatePhoneNumber(phoneNumber: <span class="built_in">string</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="regexp">/[0-9]+/</span>.test(phoneNumber) <span class="comment">// 随便写的正则, 此处不细究</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  login() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'login'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>很明显, 这个电话号码验证逻辑和User并无关联, 所以这样的写法是违反了SRP的定义的</p>
+<p>此时更好的做法是声明一个PhoneNumber类, 将验证电话号码的逻辑放在这个类中<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> PhoneNumber &#123;</span><br><span class="line">  <span class="keyword">private</span> phoneNumber: <span class="built_in">string</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">phoneNumber: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.validatePhoneNumber(phoneNumber)) &#123;</span><br><span class="line">      <span class="keyword">this</span>.phoneNumber = phoneNumber</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'invalid phoneNumber'</span>)</span><br><span class="line">    &#125;  &#125;</span><br><span class="line"></span><br><span class="line">  validatePhoneNumber(phoneNumber: <span class="built_in">string</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="regexp">/[0-9]+/</span>.test(phoneNumber) <span class="comment">// 随便写的正则, 此处不细究</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  toString() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.phoneNumber</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>之后只要在User类中改一下phoneNumber的类型就可以了<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> User &#123;</span><br><span class="line">  <span class="keyword">private</span> username: <span class="built_in">string</span></span><br><span class="line">  <span class="keyword">private</span> password: <span class="built_in">string</span></span><br><span class="line">  <span class="keyword">private</span> phoneNumber: PhoneNumber</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">username: <span class="built_in">string</span>, password: <span class="built_in">string</span>, phoneNumber: PhoneNumber</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.username = username</span><br><span class="line">    <span class="keyword">this</span>.password = password</span><br><span class="line">    <span class="keyword">this</span>.phoneNumber = phoneNumber</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  login() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'login'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>做了这一系列事后, 我们可以很容易看出每个类做了哪一些事情, 将来想要扩展功能也十分方便, 这也是SRP的优点所在。</p>
+<h2 id="开放封闭原则"><a href="#开放封闭原则" class="headerlink" title="开放封闭原则"></a>开放封闭原则</h2><blockquote>
+<p>表明软件设计时必须时刻考虑到代码可能的发展, 要具有扩展性, 但程序的发展必须最少地修改已有的代码</p>
+</blockquote>
+<p>修改程序原有代码来新增功能通常是一种很糟糕的办法, 因为这通常会引入不少难以发现的bug, 因此开放封闭原则是一个非常重要的思想</p>
+<p>而遵守开放-封闭原则的代码通常有以下几种特征:</p>
+<ul>
+<li>放置挂钩</li>
+<li>对象的多态性</li>
+</ul>
+<h3 id="放置挂钩"><a href="#放置挂钩" class="headerlink" title="放置挂钩"></a>放置挂钩</h3><p>在程序容易发生变化的地方放置一个挂钩，其返回结果决定了程序的下一步走向, 比如jQuery中的cssHooks, attrHooks等就是使用的这种方法</p>
+<p>下面是一个插件的设计思想, 是一个使用到了挂钩的不错的例子<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> HooksFunction&lt;T&gt; &#123;</span><br><span class="line">  (obj: T): <span class="built_in">void</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> PluginInterface&lt;T&gt; &#123;</span><br><span class="line">  add: <span class="function">(<span class="params">hook: <span class="built_in">string</span>, fn: HooksFunction&lt;T&gt;</span>) =&gt;</span> <span class="built_in">void</span></span><br><span class="line">  remove: <span class="function">(<span class="params">hook: <span class="built_in">string</span>, fn: HooksFunction&lt;T&gt;</span>) =&gt;</span> <span class="built_in">void</span></span><br><span class="line">  notify: <span class="function">(<span class="params">hook: <span class="built_in">string</span></span>) =&gt;</span> <span class="built_in">void</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// T为之后要安装此插件的类的类型, 如: Chart; K为 type ChartHooks = 'beforeInit' | 'afterInit' 钩子名字的字符串</span></span><br><span class="line"><span class="keyword">class</span> Plugins&lt;T, K <span class="keyword">extends</span> <span class="built_in">string</span>&gt; <span class="keyword">implements</span> PluginInterface&lt;T&gt; &#123;</span><br><span class="line">  readonly originObj: T</span><br><span class="line">  <span class="keyword">private</span> hooksFunctions: &#123; [key <span class="keyword">in</span> K]: <span class="built_in">Array</span>&lt;HooksFunction&lt;T&gt;&gt; &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">obj: T</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.originObj = obj</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  add(hook: K, fn: HooksFunction&lt;T&gt;) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">Object</span>.keys(<span class="keyword">this</span>.hooksFunctions).includes(hook)) &#123;</span><br><span class="line">      <span class="keyword">this</span>.hooksFunctions[hook].push(fn)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.hooksFunctions[hook] = [fn]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  remove(hook: K, fn: HooksFunction&lt;T&gt;) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>.hooksFunctions[hook] === <span class="string">'undefined'</span> || <span class="keyword">this</span>.hooksFunctions[hook].length === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">'此处没有相应钩子'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.hooksFunctions[hook]) &#123;</span><br><span class="line">      <span class="keyword">const</span> index = <span class="keyword">this</span>.hooksFunctions[hook].indexOf(fn)</span><br><span class="line">      <span class="keyword">this</span>.hooksFunctions[hook].slice(index, <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  notify(hook: K) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="keyword">this</span>.hooksFunctions[hook] === <span class="string">'undefined'</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">console</span>.log(<span class="string">'此处没有相应钩子'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.hooksFunctions[hook].forEach(<span class="function"><span class="params">fn</span> =&gt;</span> &#123;</span><br><span class="line">      fn.call(<span class="literal">null</span>, <span class="keyword">this</span>.originObj)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果看不大懂具体的逻辑实现也没关系, 只要知道使用方式就可以很容易理解了</p>
+<p>使用方式如下:<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> ChartHooks = <span class="string">'beforeInit'</span> | <span class="string">'afterInit'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Chart &#123;</span><br><span class="line">  <span class="keyword">public</span> plugins: Plugins&lt;Chart, ChartHooks&gt;</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.plugins = <span class="keyword">new</span> Plugins&lt;Chart, ChartHooks&gt;(<span class="keyword">this</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  initialize() &#123;</span><br><span class="line">    <span class="keyword">this</span>.plugins.notify(<span class="string">'beforeInit'</span>) <span class="comment">// 执行beforeInit的钩子</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 做一些初始化的逻辑</span></span><br><span class="line">    <span class="comment">// 略</span></span><br><span class="line">    <span class="keyword">this</span>.plugins.notify(<span class="string">'afterInit'</span>) <span class="comment">// 执行afterInit的钩子</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 做一些初始化完成后的逻辑</span></span><br><span class="line">    <span class="comment">// 略</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> chart = <span class="keyword">new</span> Chart()</span><br><span class="line">chart.plugins.add(<span class="string">'beforeInit'</span>, <span class="function"><span class="params">obj</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'before init'</span>)</span><br><span class="line">&#125;)</span><br><span class="line">chart.plugins.add(<span class="string">'afterInit'</span>, <span class="function"><span class="params">obj</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'after init'</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">chart.initialize()</span><br></pre></td></tr></table></figure></p>
+<p>可以看到在Chart执行initialize方法初始化的时候, 你可以将你的钩子放在任意位置, 扩展性很强, 在Chart类中也完全不需要知道插件做了什么, 因为这是相应的插件完成的事,  这里与单一责任原则也很好的联系在了一起。</p>
+<h3 id="对象的多态性"><a href="#对象的多态性" class="headerlink" title="对象的多态性"></a>对象的多态性</h3><p>大量的条件分支语句是造成程序违反开放-封闭原则的元凶, 因为每次新增一个if条件分支的时候, 都要去改动源代码, 特别是当if else过多的时候, 代码非常的丑陋。就算是改成switch … case 也没有改变本质。而这个时候就要思考能否用多态来进行代码重构</p>
+<p>下面我也引用一个学习多态时候的经典例子:<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Duck &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Dog &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> makeSound = <span class="function"><span class="params">animal</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (animal <span class="keyword">instanceof</span> Duck) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'嘎嘎嘎'</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (animal <span class="keyword">instanceof</span> Dog) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'汪汪汪'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">makeSound(<span class="keyword">new</span> Duck()) <span class="comment">// 嘎嘎嘎</span></span><br><span class="line">makeSound(<span class="keyword">new</span> Dog()) <span class="comment">// 汪汪汪</span></span><br></pre></td></tr></table></figure></p>
+<p>如果这个时候我们要增加一直小鸡的话, 还要在makeSound函数中添加一个else if进行对小鸡的判断, 这显然违反了开放-封闭原则</p>
+<p>让我们来用多态来进行改写:<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> MakeSoundsAnimal &#123;</span><br><span class="line">  say(): <span class="built_in">void</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Duck <span class="keyword">implements</span> MakeSoundsAnimal &#123;</span><br><span class="line">  say() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'嘎嘎嘎'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Dog <span class="keyword">implements</span> MakeSoundsAnimal &#123;</span><br><span class="line">  say() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'汪汪汪'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Chick <span class="keyword">implements</span> MakeSoundsAnimal &#123;</span><br><span class="line">  say() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'咯咯咯'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> makeSound = <span class="function">(<span class="params">animal: MakeSoundsAnimal</span>) =&gt;</span> &#123;</span><br><span class="line">  animal.say()</span><br><span class="line">&#125;</span><br><span class="line">makeSound(<span class="keyword">new</span> Duck()) <span class="comment">// 嘎嘎嘎</span></span><br><span class="line">makeSound(<span class="keyword">new</span> Dog()) <span class="comment">// 汪汪汪</span></span><br><span class="line">makeSound(<span class="keyword">new</span> Chick()) <span class="comment">// 咯咯咯</span></span><br></pre></td></tr></table></figure></p>
+<p>这样子的话只要新增一个实现了MakeSoundsAnimal接口的类, 而不用去修改makeSound的代码了</p>
+<h2 id="里氏替换原则"><a href="#里氏替换原则" class="headerlink" title="里氏替换原则"></a>里氏替换原则</h2><blockquote>
+<p>表明只要继承的是用一个接口, 程序里容易一个类都可以被其他的类替换。在替换完后, 不需要其他额外的工作程序就能像原来一样运行。</p>
+</blockquote>
+<p>我们声明一个PersistanceService类, 它的作用是将对象持久化到某种存储中, 先以Cookie为媒介:<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> PersistenceServiceInterface &#123;</span><br><span class="line">  save(entity: <span class="built_in">any</span>): <span class="built_in">number</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> CookiePersistenceService <span class="keyword">implements</span> PersistenceServiceInterface&#123;</span><br><span class="line">  save(entity: <span class="built_in">any</span>): <span class="built_in">number</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> id = <span class="built_in">Math</span>.floor((<span class="built_in">Math</span>.random() * <span class="number">100</span>) + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 存储逻辑</span></span><br><span class="line">    <span class="keyword">return</span> id</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>之后我们声明一个FavouritesController类, 它有一个基于PersistanceServiceInterface的依赖<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> FavouritesController &#123;</span><br><span class="line">  <span class="keyword">private</span> _persistenceService: PersistenceServiceInterface</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params">persistenceService</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>._persistenceService = persistenceService</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> saveAsFavourite(articleId: <span class="built_in">number</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>._persistenceService.save(articleId)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>传入CookiePersistanceService使用<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> favouritesController = <span class="keyword">new</span> FavouritesController(<span class="keyword">new</span> CookiePersistenceService())</span><br><span class="line">favouritesController.saveAsFavourite(<span class="number">1</span>)</span><br></pre></td></tr></table></figure></p>
+<p>根据里氏替换原则, 我们将CookiePersistanceService替换为另一种实现了PersistanceServiceInterface接口的类<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> LocalStoragePersistenceService <span class="keyword">implements</span> PersistenceServiceInterface &#123;</span><br><span class="line">  save(entity: <span class="built_in">any</span>): <span class="built_in">number</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> id = <span class="built_in">Math</span>.floor((<span class="built_in">Math</span>.random() * <span class="number">100</span>) + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 存储逻辑</span></span><br><span class="line">    <span class="keyword">return</span> id</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>传入LocalStoragePersistenceService使用<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> favouritesController = <span class="keyword">new</span> FavouritesController(<span class="keyword">new</span> LocalStoragePersistenceService())</span><br><span class="line">favouritesController.saveAsFavourite(<span class="number">1</span>)</span><br></pre></td></tr></table></figure></p>
+<p>可以看到我们没有对FavouritesController做任何的修改</p>
+<h2 id="接口隔离原则"><a href="#接口隔离原则" class="headerlink" title="接口隔离原则"></a>接口隔离原则</h2><blockquote>
+<p>表明我们应该讲那些非常大的接口拆分成一些小的更具体的接口， 这样客户端就只需关系他们需要用到的接口。</p>
+</blockquote>
+<p>加入有这样一个描述动物的接口<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> AnimalInterface &#123;</span><br><span class="line">  fly(): <span class="built_in">void</span></span><br><span class="line">  makeSounds(): <span class="built_in">void</span></span><br><span class="line">  height: <span class="built_in">number</span></span><br><span class="line">  weight: <span class="built_in">number</span></span><br><span class="line">  name: <span class="built_in">string</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>但是很明显, 不是所有的动物都是会飞的或是会发出声音的, 如果是一个会飞的动物但是不会发出声音, 也就是没有makeSounds方法的话, 这就违背了接口隔离原则</p>
+<p>解决方法也很简单, 就是将接口逐个分离:<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> FlyInterface &#123;</span><br><span class="line">  fly(): <span class="built_in">void</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> MakeSoundsAnimalInterface &#123;</span><br><span class="line">  makeSounds(): <span class="built_in">void</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> AnimalSizeInterface &#123;</span><br><span class="line">  height: <span class="built_in">number</span></span><br><span class="line">  weight: <span class="built_in">number</span></span><br><span class="line">  name: <span class="built_in">string</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这样我们可以只依赖FlyInterface和AnimalSizeInterface来表示会飞但是不会发出声音的动物</p>
+<h2 id="依赖倒置原则"><a href="#依赖倒置原则" class="headerlink" title="依赖倒置原则"></a>依赖倒置原则</h2><blockquote>
+<p>表明一个方法应该遵从依赖于抽象而不是一个实例的概念。</p>
+</blockquote>
+<p>之前讲解里氏替换原则时的例子同时也遵循了依赖倒置原则, 我们再实现了FavouritesController后, 不需要FavouritesController更改任何代码就能替换PersistenceServiceInterface<br>的实现, 因为FavouritesController依赖的是PersistenceServiceInterface(抽象), 而不是CookiePersistenceService(实现)</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://www.jianshu.com/p/5bf1802a2589" target="_blank" rel="noopener">JS类库下插件/钩子设计思想 - 简书</a></li>
+<li><a href="http://xmoyking.github.io/2017/12/06/js-pattern17/" target="_blank" rel="noopener">JS设计模式-17-设计原则：单一职责原则/最少知识原则/开放-封闭原则</a></li>
+</ul>
+
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/" class="archive-article-date">
-  	<time datetime="2018-08-23T03:03:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/">《深入理解计算机系统》配套实验4: Cache lab</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">TypeScript</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.pikahan.com/2020/06/28/在typescript中应用SOLID原则/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/" class="archive-article-date">
-  	<time datetime="2018-08-12T03:18:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-12</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/02/forEach与async函数的三两事/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">forEach与async函数的三两事</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/">《深入理解计算机系统》配套实验3: Attack lab</a>
-    </h1>
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zNjU5My8xMzEyOA==">
+<script type="text/javascript">
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+</script>
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+  
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/08/《深入理解计算机系统》配套实验2-Bomb-lab/" class="archive-article-date">
-  	<time datetime="2018-08-08T01:48:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/08/《深入理解计算机系统》配套实验2-Bomb-lab/">《深入理解计算机系统》配套实验2: Bomb lab</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/21/学习CSAPP/" class="archive-article-date">
-  	<time datetime="2018-06-21T11:20:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/21/学习CSAPP/">学习CSAPP</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -365,9 +417,9 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

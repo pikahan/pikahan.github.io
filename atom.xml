@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.pikahan.com/"/>
-  <updated>2020-06-02T02:36:16.634Z</updated>
+  <updated>2020-06-28T10:31:14.171Z</updated>
   <id>http://www.pikahan.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在typescript中应用SOLID原则</title>
+    <link href="http://www.pikahan.com/2020/06/28/%E5%9C%A8typescript%E4%B8%AD%E5%BA%94%E7%94%A8SOLID%E5%8E%9F%E5%88%99/"/>
+    <id>http://www.pikahan.com/2020/06/28/在typescript中应用SOLID原则/</id>
+    <published>2020-06-28T10:29:44.000Z</published>
+    <updated>2020-06-28T10:31:14.171Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;SOLID是面向对象编程和面向对象设计的五个重要原则的英文首字母组成的。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;单一职责原则（SRP）: 表明软件组件(函数、类、模块)必须专注于单一的任务(只有单一的职责)&lt;/li&gt;
+&lt;li&gt;开放封闭原则（OCP）: 表明软件设计时必须时刻考虑到代码可能的发展, 要具有扩展性, 但程序的发展必须最少地修改已有的代码&lt;/li&gt;
+&lt;li&gt;里氏替换原则（LSP）: 表明只要继承的是用一个接口, 程序里容易一个类都可以被其他的类替换。在替换完后, 不需要其他额外的工作程序就能像原来一样运行。&lt;/li&gt;
+&lt;li&gt;接口隔离原则（ISP）: 表明我们应该讲那些非常大的接口拆分成一些小的更具体的接口， 这样客户端就只需关系他们需要用到的接口。&lt;/li&gt;
+&lt;li&gt;依赖倒置原则（DIP）: 表明一个方法应该遵从依赖于抽象而不是一个实例的概念。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;下面我一个一个举例子&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="TypeScript" scheme="http://www.pikahan.com/tags/TypeScript/"/>
+    
+  </entry>
   
   <entry>
     <title>forEach与async函数的三两事</title>
@@ -290,9 +316,9 @@
     </summary>
     
     
-      <category term="CSAPP" scheme="http://www.pikahan.com/tags/CSAPP/"/>
-    
       <category term="随笔" scheme="http://www.pikahan.com/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+      <category term="CSAPP" scheme="http://www.pikahan.com/tags/CSAPP/"/>
     
   </entry>
   
