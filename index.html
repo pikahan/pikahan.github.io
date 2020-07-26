@@ -173,6 +173,92 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-在小程序中给上传的图片打水印" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/07/06/在小程序中给上传的图片打水印/">在小程序中给上传的图片打水印</a>
+    </h1>
+  
+
+        
+        <a href="/2020/07/06/在小程序中给上传的图片打水印/" class="archive-article-date">
+  	<time datetime="2020-07-06T14:53:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><pre><code>最近在做一个Taro小程序项目的时候遇到了这样一个需求, 就是在用户上传图片之后, 能够自动为图片打上水印, 服务端接受到的也是打完水印之后的图片。网上查阅相关资料后发现可以用Canvas来实现。
+
+下面就简单的介绍下需要了解的相关内容以及功能的实现过程。如果对相关api熟悉的话可以跳过, 直接看实现过程。
+</code></pre><blockquote>
+<p>顺便一提, 因为我用的是Taro框架, 用React语法来写小程序的, 所以语法上和原生小程序有一些出入, 但影响不大。比如在Taro中， 创建Canvas上下文的语法是<code>Taro.createCanvasContext()</code>, 而在原生小程序中仅仅只要把<code>Taro</code>改成<code>wx</code>就可以了</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2020/07/06/在小程序中给上传的图片打水印/#more">more >></a>
+        
+      
+      
+    
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">taro</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小程序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/07/06/在小程序中给上传的图片打水印/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-在typescript中应用SOLID原则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -936,94 +1022,6 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-《深入理解计算机系统》配套实验3-Attack-lab" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/">《深入理解计算机系统》配套实验3: Attack lab</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/" class="archive-article-date">
-  	<time datetime="2018-08-12T03:18:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>以下操作均在ubuntu 18.04下完成 </p>
-</blockquote>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
-<li>下载<a href="http://csapp.cs.cmu.edu/3e/target1.tar" target="_blank" rel="noopener">attack lab</a></li>
-<li>阅读实验指导<a href="http://csapp.cs.cmu.edu/3e/bomblab.pdf" target="_blank" rel="noopener">Writeup</a>(不看的话很多操作都不知道是什么)</li>
-<li>了解gdb的使用</li>
-</ul>
-<blockquote>
-<p>参考链接<a href="http://csapp.cs.cmu.edu/2e/docs/gdbnotes-x86-64.pdf" target="_blank" rel="noopener">gdbnotes</a></p>
-</blockquote>
-<h1 id="Part-I-Code-Injection-Attacks"><a href="#Part-I-Code-Injection-Attacks" class="headerlink" title="Part I: Code Injection Attacks"></a>Part I: Code Injection Attacks</h1>
-        
-          <a class="article-more-a" href="/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/#more">more >></a>
-        
-      
-      
-    
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">CSAPP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1163,6 +1161,14 @@ ga('send', 'pageview');
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">MQTT</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">taro</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小程序</a>
               </li>
              
               <li class="article-tag-list-item">
