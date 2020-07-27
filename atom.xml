@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.pikahan.com/"/>
-  <updated>2020-07-26T14:54:31.000Z</updated>
+  <updated>2020-07-27T07:54:21.323Z</updated>
   <id>http://www.pikahan.com/</id>
   
   <author>
@@ -15,6 +15,24 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基于 Token 的鉴权方式总结</title>
+    <link href="http://www.pikahan.com/2020/07/27/%E5%9F%BA%E4%BA%8E-Token-%E7%9A%84%E9%89%B4%E6%9D%83%E6%96%B9%E5%BC%8F%E6%80%BB%E7%BB%93/"/>
+    <id>http://www.pikahan.com/2020/07/27/基于-Token-的鉴权方式总结/</id>
+    <published>2020-07-27T07:53:32.000Z</published>
+    <updated>2020-07-27T07:54:21.323Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;基于token的一种鉴权模式也算是目前业界的主流鉴权方式之一了, 但是token鉴权的实现方式也是有许多中的, 这次我就结合自己项目中使用过的, 还有网上查询到的相关资料来简单介绍下。(我后端采用Java语言)&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="鉴权" scheme="http://www.pikahan.com/tags/%E9%89%B4%E6%9D%83/"/>
+    
+  </entry>
   
   <entry>
     <title>在小程序中给上传的图片打水印</title>
