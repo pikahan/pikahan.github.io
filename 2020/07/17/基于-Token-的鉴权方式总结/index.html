@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.pikahan.com">
-  <title>Tag: nodejs | Hexo</title>
+  <title>基于 Token 的鉴权方式总结 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://www.pikahan.com/tags/nodejs/index.html">
+  <meta name="description" content="前言基于token的一种鉴权模式也算是目前业界的主流鉴权方式之一了, 但是token鉴权的实现方式也是有许多中的, 这次我就结合自己项目中使用过的, 还有网上查询到的相关资料来简单介绍下。(我后端采用Java语言)">
+<meta name="keywords" content="鉴权">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于 Token 的鉴权方式总结">
+<meta property="og:url" content="http://www.pikahan.com/2020/07/17/基于-Token-的鉴权方式总结/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前言基于token的一种鉴权模式也算是目前业界的主流鉴权方式之一了, 但是token鉴权的实现方式也是有许多中的, 这次我就结合自己项目中使用过的, 还有网上查询到的相关资料来简单介绍下。(我后端采用Java语言)">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-07-27T07:54:48.311Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="基于 Token 的鉴权方式总结">
+<meta name="twitter:description" content="前言基于token的一种鉴权模式也算是目前业界的主流鉴权方式之一了, 但是token鉴权的实现方式也是有许多中的, 这次我就结合自己项目中使用过的, 还有网上查询到的相关资料来简单介绍下。(我后端采用Java语言)">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -171,64 +176,223 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-基于-Token-的鉴权方式总结" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/04/node文件扫描动态加载路由koa-router版/" class="archive-article-date">
-  	<time datetime="2020-03-04T10:53:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-04</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/04/node文件扫描动态加载路由koa-router版/">node文件扫描动态加载路由koa-router版</a>
+    <h1 class="article-title" itemprop="name">
+      基于 Token 的鉴权方式总结
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/07/17/基于-Token-的鉴权方式总结/" class="archive-article-date">
+  	<time datetime="2020-07-17T07:53:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>基于token的一种鉴权模式也算是目前业界的主流鉴权方式之一了, 但是token鉴权的实现方式也是有许多中的, 这次我就结合自己项目中使用过的, 还有网上查询到的相关资料来简单介绍下。(我后端采用Java语言)</p>
+<a id="more"></a>
+<h2 id="Token鉴权流程"><a href="#Token鉴权流程" class="headerlink" title="Token鉴权流程"></a>Token鉴权流程</h2><p>虽然Token鉴权有多重实现方式, 但是基本流程基本还是相似的</p>
+<p>基本流程如下:</p>
+<ul>
+<li>客户端使用用户名密码来请求服务器</li>
+<li>服务器收到请求, 验证用户的信息</li>
+<li>服务器通过验证, 签发给用户一个Token</li>
+<li>客户端存储Token，并在每次请求资源时附送上这个Token值</li>
+<li>服务端验证Token值，并返回相应数据</li>
+</ul>
+<p>而基于 Token 的鉴权方式的差异, 体现在 token 的生成方式以及存储方式上。</p>
+<p>最常见都有以下两种：弱约定型和强约定型</p>
+<h2 id="弱约定型"><a href="#弱约定型" class="headerlink" title="弱约定型"></a>弱约定型</h2><blockquote>
+<p>以下引用自<a href="https://blog.csdn.net/wdxcln/article/details/105759786" target="_blank" rel="noopener">基于 token 的鉴权以及常见的实现方式<em>wdxcln的博客-CSDN博客</em>基于token 的鉴权方式</a><br>特点:</p>
+<ul>
+<li>token 的生成根据需求和喜好自定义，常见是（用户信息+时间戳）的base64/md5编码。</li>
+<li>需要借助其他缓存中间件（如redis）保存 token 和用户信息</li>
+<li>客户端发送发送请求到服务器进行鉴权时，除了必须带上 token 外，必须带上用户唯一id。服务端检验类似于 username + password 校验机制</li>
+<li>鉴权通过后，从缓存中返回该用户的用户信息给客户端<br>服务器无需存储秘钥</li>
+</ul>
+</blockquote>
+<p>这种方式一般会采用redis在服务端存放token信息<br>可以看看我在后端是如何实现的, 首先是登录的业务逻辑<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RegisterLoginController</span> <span class="keyword">extends</span> <span class="title">BasicController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserService userService;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> UserVO <span class="title">setUserRedisSessionToken</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">        String uniqueToken = UUID.randomUUID().toString(); <span class="comment">// 创建一个唯一的字符串</span></span><br><span class="line">        redisOperator.set(USER_REDIS_SESSION + <span class="string">":"</span> + user.getId(), uniqueToken, <span class="number">1000</span> * <span class="number">60</span> * <span class="number">30</span>); <span class="comment">// 将token当做value存入redis中, 它的key用user的唯一id来标识, 且过期时间是30分钟</span></span><br><span class="line">        UserVO userVO = <span class="keyword">new</span> UserVO();</span><br><span class="line">        BeanUtils.copyProperties(user, userVO);</span><br><span class="line">        userVO.setUserToken(uniqueToken);</span><br><span class="line">        <span class="keyword">return</span> userVO;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/login"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> WxJSONResult <span class="title">login</span><span class="params">(@RequestBody User user)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        String username = user.getUsername();</span><br><span class="line">        String password = user.getPassword();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 1. 判断用户名和密码必须不为空</span></span><br><span class="line">        <span class="keyword">if</span> (StringUtils.isBlank(username) || StringUtils.isBlank(password)) &#123;</span><br><span class="line">            <span class="keyword">return</span> WxJSONResult.errorMsg(<span class="string">"用户名或密码不能为空…"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2. 判断用户是否存在</span></span><br><span class="line">        User userResult = userService.queryUserForLogin(username,</span><br><span class="line">                MD5Utils.getMD5Str(user.getPassword()));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 返回</span></span><br><span class="line">        <span class="keyword">if</span> (userResult != <span class="keyword">null</span>) &#123;</span><br><span class="line">            userResult.setPassword(<span class="string">""</span>);</span><br><span class="line">            UserVO userVO = setUserRedisSessionToken(userResult);</span><br><span class="line">            <span class="keyword">return</span> WxJSONResult.ok(userVO);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> WxJSONResult.errorMsg(<span class="string">"用户名或密码不正确, 请重试..."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在客户端发送登录请求并验证成功后, 会得到根据这条登录记录生成的Token, 而前端要做的事就是讲这个Token存储起来, 并且在每次请求资源的时候都在header中添加上Token信息, 举个例子<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fetchData</span>(<span class="params">userId</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="params">dispatch</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> headerUserToken = getUserToken() <span class="comment">// 得到存储在localStorage中的userToken</span></span><br><span class="line">    Taro.request(&#123; <span class="comment">// 发送请求</span></span><br><span class="line">      url: <span class="string">`<span class="subst">$&#123;REQUEST_URL&#125;</span>/hazard`</span>,</span><br><span class="line">      method: <span class="string">'GET'</span>,</span><br><span class="line">      header: &#123; <span class="attr">headerUserId</span>: userId, headerUserToken &#125;, <span class="comment">// </span></span><br><span class="line">      complete(res) &#123;</span><br><span class="line">        <span class="keyword">let</span> &#123; data,  statusCode&#125; = res <span class="keyword">as</span> any</span><br><span class="line">        <span class="keyword">if</span> (statusCode === <span class="number">200</span>) &#123;</span><br><span class="line">          </span><br><span class="line">          <span class="comment">// 数据处理</span></span><br><span class="line">          …</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>之后再后端那边还要相应的添加一个过滤器拦截没有附加Token或者是Token失效的请求<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MiniInterceptor</span> <span class="keyword">implements</span> <span class="title">HandlerInterceptor</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">public</span> RedisOperator redis;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String USER_REDIS_SESSION = <span class="string">"user-redis-session"</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 拦截请求，在controller调用之前</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">preHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, </span></span></span><br><span class="line"><span class="function"><span class="params">			Object arg2)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		String userId = request.getHeader(<span class="string">"headerUserId"</span>); <span class="comment">// 取出header中的userId</span></span><br><span class="line">		String userToken = request.getHeader(<span class="string">"headerUserToken"</span>); <span class="comment">// 取出header中的token</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">if</span> (StringUtils.isNotBlank(userId) &amp;&amp; StringUtils.isNotBlank(userToken)) &#123;</span><br><span class="line">			String uniqueToken = redis.get(USER_REDIS_SESSION + <span class="string">":"</span> + userId); <span class="comment">// 从redis中获得此用户对应的token</span></span><br><span class="line">			<span class="keyword">if</span> (StringUtils.isEmpty(uniqueToken) &amp;&amp; StringUtils.isBlank(uniqueToken)) &#123;</span><br><span class="line">				</span><br><span class="line">				<span class="comment">// 说明token过期</span></span><br><span class="line">				System.out.println(<span class="string">"请登录…"</span>);</span><br><span class="line">				returnErrorResponse(response, <span class="keyword">new</span> WxJSONResult().errorTokenMsg(<span class="string">"请登录…"</span>));</span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				<span class="keyword">if</span> (!uniqueToken.equals(userToken)) &#123;</span><br><span class="line">					</span><br><span class="line">					<span class="comment">// 说明token值不对应</span></span><br><span class="line">					System.out.println(<span class="string">"账号被挤出…"</span>);</span><br><span class="line">					returnErrorResponse(response, <span class="keyword">new</span> WxJSONResult().errorTokenMsg(<span class="string">"账号被挤出..."</span>));</span><br><span class="line">					<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123; <span class="comment">// 没有携带token信息</span></span><br><span class="line">			System.out.println(<span class="string">"请登录..."</span>);</span><br><span class="line">			returnErrorResponse(response, <span class="keyword">new</span> WxJSONResult().errorTokenMsg(<span class="string">"请登录..."</span>));</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		<span class="comment">/**</span></span><br><span class="line"><span class="comment">		 * 返回 false：请求被拦截，返回</span></span><br><span class="line"><span class="comment">		 * 返回 true ：请求OK，可以继续执行，放行</span></span><br><span class="line"><span class="comment">		 */</span></span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>可以看到, 一旦发生请求的时候没有携带token信息, 或者token信息过期, 都会被java的过滤器拦截, 是没有办法顺利得到所需要的数据的</p>
+<h2 id="强约定型"><a href="#强约定型" class="headerlink" title="强约定型"></a>强约定型</h2><p>这种形式就是JWT所使用的形式</p>
+<p>特点:</p>
+<ul>
+<li>token 的生成根据业内规定，按照一定规则生成</li>
+<li>token 保存的用户信息，可以逆向解析，供鉴权通过后返回客户端直接使用</li>
+<li>不用单独存储用户信息(不需要使用到redis等)</li>
+<li>服务器需要存储秘钥</li>
+<li>服务端检验类似于 业内规则 + 秘钥</li>
+<li>无需额外借助其他缓存中间件</li>
+</ul>
+<p>缺点: </p>
+<ul>
+<li>令牌签发问题: 一旦令牌发出无法撤销, 只能等待令牌过期, 因为令牌会在有效期内一直有效的</li>
+</ul>
+<p>在编写代码前还是再来介绍下JWT吧</p>
+<p>JWT(Json Web Token)是由三段信息构成的, 用’.’分隔开</p>
+<ul>
+<li>header: 头部, 一般承载声明类型和加密算法, 如{ “typ”: “JWT”, “alg”: “HS256” }</li>
+<li>payload: 载荷, 用来存放一些用户信息, 如{“userId”: 823}</li>
+<li>signature: 签证信息, 由base64后的header和payload再通过header中声明的加密方式加盐(secret)加密得到</li>
+</ul>
+<p>好了, 下面是后端的实现<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MiniInterceptor</span> <span class="keyword">implements</span> <span class="title">HandlerInterceptor</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Autowired</span></span><br><span class="line">	<span class="keyword">public</span> RedisOperator redis;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String USER_REDIS_SESSION = <span class="string">"user-redis-session"</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 拦截请求，在controller调用之前</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">preHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, </span></span></span><br><span class="line"><span class="function"><span class="params">			Object arg2)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">		String userToken = httpServletRequest.getHeader(<span class="string">"headerUserToken"</span>);</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">		<span class="comment">//检查有没有需要权限的注解</span></span><br><span class="line">		<span class="keyword">if</span> (method.isAnnotationPresent(CheckToken.class)) &#123;</span><br><span class="line">			CheckToken checkToken = method.getAnnotation(CheckToken.class);</span><br><span class="line">			<span class="keyword">if</span> (checkToken.required()) &#123;</span><br><span class="line">				<span class="comment">// 执行认证</span></span><br><span class="line">				<span class="keyword">if</span> (userToken == <span class="keyword">null</span>) &#123;</span><br><span class="line">					<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"无token，请重新登录"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="comment">// 获取 token 中的 user id</span></span><br><span class="line">				String userId;</span><br><span class="line">				<span class="keyword">try</span> &#123;</span><br><span class="line">					userId = JWT.decode(userToken).getClaim(<span class="string">"id"</span>).asString();</span><br><span class="line">				&#125; <span class="keyword">catch</span> (JWTDecodeException j) &#123;</span><br><span class="line">					<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"访问异常！"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">				User user = userService.findUserById(userId);</span><br><span class="line">				<span class="keyword">if</span> (user == <span class="keyword">null</span>) &#123;</span><br><span class="line">					<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"用户不存在，请重新登录"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">				Boolean verify = JwtUtil.isVerify(userToken, user);</span><br><span class="line">				<span class="keyword">if</span> (!verify) &#123;</span><br><span class="line">					<span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(<span class="string">"非法访问！"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>而前端的做法和之前一种方式是相同的, 这里就不细说了。</p>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><p>既然这两种实现的方式都是非常常用的， 那么他们之间肯定有着许多的区别</p>
+<ul>
+<li>JWT的主要优势在于使用无状态、可扩展的方式处理应用中的用户会话。在一个分布式的面向服务的框架中，这一点非常有用。但是，如果系统中需要使用黑名单实现长期有效的token刷新机制, 这就十分麻烦了</li>
+<li>token+redis的模式因为每次验证还是需要进行数据库的查询, 性能会远低于JWT的模式</li>
+<li>如果JWT进行加密的密钥被偷窃, 那么密文就会被窃取, 非常危险, 而token+redis的模式因为数据都是存放在数据库中的, 没有这个危险</li>
+</ul>
+<p>因此总的来说, JWT的模式更适合轻量的系统和权限不严格系统, 比如个人博客之类的, 因为密文即使被窃取也损失不大, 但是却可以获得极高的服务器性能; token + redis的模式适合重量系统和权限有严格要求的系统, 如支付系统啊等等。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="https://blog.csdn.net/wang839305939/article/details/78713124/" target="_blank" rel="noopener">前后端常见的几种鉴权方式<em>wang839305939的博客-CSDN博客</em>鉴权</a></li>
+<li><a href="https://blog.csdn.net/wdxcln/article/details/105759786" target="_blank" rel="noopener">基于 token 的鉴权以及常见的实现方式<em>wdxcln的博客-CSDN博客</em>基于token 的鉴权方式</a></li>
+</ul>
+
+      
+      
+    
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">koa</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nodejs</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">鉴权</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.pikahan.com/2020/07/17/基于-Token-的鉴权方式总结/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/07/06/在小程序中给上传的图片打水印/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">在小程序中给上传的图片打水印</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zNjU5My8xMzEyOA==">
+<script type="text/javascript">
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+</script>
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+  
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -251,9 +415,9 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
