@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://www.pikahan.com">
   <title>尝试一次自己配置webpack搭建React项目环境(二) | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言接着上文, 这次来谈谈如何进行一些打包的优化 一些优化现在项目算是能跑起来, 但是只是能跑而已, create-react-app不仅仅做了这些, 还有非常多的优化方案, 下面我来介绍一些常见方案 抽离css因为如果没有抽离css的话, css默认是在js中进行加载的, 这在线上环境中显然是不允许的, 抽离css也是为了在线上环境中更好的利用缓存 安装相关插件1yarn add --dev m">
+  <meta name="description" content="前言接着上文, 这次来谈谈如何进行一些打包的优化 一些优化现在项目算是能跑起来, 但是只是能跑而已, create-react-app不仅仅做了这些, 还有非常多的优化方案, 下面我来介绍一些常见方案 抽离css因为如果没有抽离css的话, css默认是在js中进行加载的, 这在线上环境中显然是不允许的, 抽离css也是为了在线上环境中更好的利用缓存 安装相关插件1yarn add --dev">
 <meta name="keywords" content="webpack,React">
 <meta property="og:type" content="article">
 <meta property="og:title" content="尝试一次自己配置webpack搭建React项目环境(二)">
 <meta property="og:url" content="http://www.pikahan.com/2020/05/13/尝试一次自己配置webpack搭建React项目环境-二/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="前言接着上文, 这次来谈谈如何进行一些打包的优化 一些优化现在项目算是能跑起来, 但是只是能跑而已, create-react-app不仅仅做了这些, 还有非常多的优化方案, 下面我来介绍一些常见方案 抽离css因为如果没有抽离css的话, css默认是在js中进行加载的, 这在线上环境中显然是不允许的, 抽离css也是为了在线上环境中更好的利用缓存 安装相关插件1yarn add --dev m">
+<meta property="og:description" content="前言接着上文, 这次来谈谈如何进行一些打包的优化 一些优化现在项目算是能跑起来, 但是只是能跑而已, create-react-app不仅仅做了这些, 还有非常多的优化方案, 下面我来介绍一些常见方案 抽离css因为如果没有抽离css的话, css默认是在js中进行加载的, 这在线上环境中显然是不允许的, 抽离css也是为了在线上环境中更好的利用缓存 安装相关插件1yarn add --dev">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://www.pikahan.com/2020/05/13/尝试一次自己配置webpack搭建React项目环境-二/05/13/尝试一次自己配置webpack搭建React项目环境-二/analyzer.png">
-<meta property="og:updated_time" content="2020-07-31T13:51:22.943Z">
+<meta property="og:updated_time" content="2020-07-31T13:52:18.477Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="尝试一次自己配置webpack搭建React项目环境(二)">
-<meta name="twitter:description" content="前言接着上文, 这次来谈谈如何进行一些打包的优化 一些优化现在项目算是能跑起来, 但是只是能跑而已, create-react-app不仅仅做了这些, 还有非常多的优化方案, 下面我来介绍一些常见方案 抽离css因为如果没有抽离css的话, css默认是在js中进行加载的, 这在线上环境中显然是不允许的, 抽离css也是为了在线上环境中更好的利用缓存 安装相关插件1yarn add --dev m">
+<meta name="twitter:description" content="前言接着上文, 这次来谈谈如何进行一些打包的优化 一些优化现在项目算是能跑起来, 但是只是能跑而已, create-react-app不仅仅做了这些, 还有非常多的优化方案, 下面我来介绍一些常见方案 抽离css因为如果没有抽离css的话, css默认是在js中进行加载的, 这在线上环境中显然是不允许的, 抽离css也是为了在线上环境中更好的利用缓存 安装相关插件1yarn add --dev">
 <meta name="twitter:image" content="http://www.pikahan.com/2020/05/13/尝试一次自己配置webpack搭建React项目环境-二/05/13/尝试一次自己配置webpack搭建React项目环境-二/analyzer.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -198,7 +198,8 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>接着上文, 这次来谈谈如何进行一些打包的优化</p>
+        <a id="more"></a>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>接着上文, 这次来谈谈如何进行一些打包的优化</p>
 <h2 id="一些优化"><a href="#一些优化" class="headerlink" title="一些优化"></a>一些优化</h2><p>现在项目算是能跑起来, 但是只是能跑而已, create-react-app不仅仅做了这些, 还有非常多的优化方案, 下面我来介绍一些常见方案</p>
 <h3 id="抽离css"><a href="#抽离css" class="headerlink" title="抽离css"></a>抽离css</h3><p>因为如果没有抽离css的话, css默认是在js中进行加载的, 这在线上环境中显然是不允许的, 抽离css也是为了在线上环境中更好的利用缓存</p>
 <p>安装相关插件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add --dev mini-css-extract-plugin</span><br></pre></td></tr></table></figure></p>
@@ -551,14 +552,6 @@ ga('send', 'pageview');
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSAPP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
@@ -568,6 +561,14 @@ ga('send', 'pageview');
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CSAPP</a>
               </li>
              
               <li class="article-tag-list-item">
