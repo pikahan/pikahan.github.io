@@ -8,20 +8,20 @@
   <link rel="dns-prefetch" href="http://www.pikahan.com">
   <title>尝试一次自己配置webpack搭建React项目环境(二) | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言接着上文, 这次来谈谈如何进行一些打包的优化 一些优化现在项目算是能跑起来, 但是只是能跑而已, create-react-app不仅仅做了这些, 还有非常多的优化方案, 下面我来介绍一些常见方案 抽离css因为如果没有抽离css的话, css默认是在js中进行加载的, 这在线上环境中显然是不允许的, 抽离css也是为了在线上环境中更好的利用缓存 安装相关插件1yarn add --dev">
+  <meta name="description" content="前言接着上文, 这次来谈谈如何进行一些打包的优化">
 <meta name="keywords" content="webpack,React">
 <meta property="og:type" content="article">
 <meta property="og:title" content="尝试一次自己配置webpack搭建React项目环境(二)">
 <meta property="og:url" content="http://www.pikahan.com/2020/05/13/尝试一次自己配置webpack搭建React项目环境-二/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="前言接着上文, 这次来谈谈如何进行一些打包的优化 一些优化现在项目算是能跑起来, 但是只是能跑而已, create-react-app不仅仅做了这些, 还有非常多的优化方案, 下面我来介绍一些常见方案 抽离css因为如果没有抽离css的话, css默认是在js中进行加载的, 这在线上环境中显然是不允许的, 抽离css也是为了在线上环境中更好的利用缓存 安装相关插件1yarn add --dev">
+<meta property="og:description" content="前言接着上文, 这次来谈谈如何进行一些打包的优化">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://www.pikahan.com/2020/05/13/尝试一次自己配置webpack搭建React项目环境-二/05/13/尝试一次自己配置webpack搭建React项目环境-二/analyzer.png">
-<meta property="og:updated_time" content="2020-07-31T13:52:18.477Z">
+<meta property="og:image" content="http://www.pikahan.com/2020/05/13/尝试一次自己配置webpack搭建React项目环境-二/analyzer.png">
+<meta property="og:updated_time" content="2020-07-31T13:59:53.215Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="尝试一次自己配置webpack搭建React项目环境(二)">
-<meta name="twitter:description" content="前言接着上文, 这次来谈谈如何进行一些打包的优化 一些优化现在项目算是能跑起来, 但是只是能跑而已, create-react-app不仅仅做了这些, 还有非常多的优化方案, 下面我来介绍一些常见方案 抽离css因为如果没有抽离css的话, css默认是在js中进行加载的, 这在线上环境中显然是不允许的, 抽离css也是为了在线上环境中更好的利用缓存 安装相关插件1yarn add --dev">
-<meta name="twitter:image" content="http://www.pikahan.com/2020/05/13/尝试一次自己配置webpack搭建React项目环境-二/05/13/尝试一次自己配置webpack搭建React项目环境-二/analyzer.png">
+<meta name="twitter:description" content="前言接着上文, 这次来谈谈如何进行一些打包的优化">
+<meta name="twitter:image" content="http://www.pikahan.com/2020/05/13/尝试一次自己配置webpack搭建React项目环境-二/analyzer.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -198,8 +198,8 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>接着上文, 这次来谈谈如何进行一些打包的优化</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>接着上文, 这次来谈谈如何进行一些打包的优化</p>
+<a id="more"></a>
 <h2 id="一些优化"><a href="#一些优化" class="headerlink" title="一些优化"></a>一些优化</h2><p>现在项目算是能跑起来, 但是只是能跑而已, create-react-app不仅仅做了这些, 还有非常多的优化方案, 下面我来介绍一些常见方案</p>
 <h3 id="抽离css"><a href="#抽离css" class="headerlink" title="抽离css"></a>抽离css</h3><p>因为如果没有抽离css的话, css默认是在js中进行加载的, 这在线上环境中显然是不允许的, 抽离css也是为了在线上环境中更好的利用缓存</p>
 <p>安装相关插件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add --dev mini-css-extract-plugin</span><br></pre></td></tr></table></figure></p>
@@ -250,7 +250,7 @@ ga('send', 'pageview');
 <h2 id="可视化打包分析工具"><a href="#可视化打包分析工具" class="headerlink" title="可视化打包分析工具"></a>可视化打包分析工具</h2><p>有些时候使用一个打包分析工具更能帮助你优化webpack的打包速度, 而<code>webpack-bundle-analyzer</code>正是一个不错的选择</p>
 <p>安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add --dev webpack-bundle-analyzer</span><br></pre></td></tr></table></figure></p>
 <p>老规矩, 在<code>webpack.dev.js</code>中配置<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">  <span class="keyword">new</span> BundleAnalyzerPlugin()</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
-<img src="/2020/05/13/尝试一次自己配置webpack搭建React项目环境-二/05/13/尝试一次自己配置webpack搭建React项目环境-二/analyzer.png" title="analyzer">
+<p><img src="/2020/05/13/尝试一次自己配置webpack搭建React项目环境-二/analyzer.png" alt="analyzer"></p>
 <h2 id="最终代码"><a href="#最终代码" class="headerlink" title="最终代码"></a>最终代码</h2><p>最后的代码我放在了github上, 有兴趣的可以看看<br><a href="https://github.com/pikahan/react-webpack-demo" target="_blank" rel="noopener">GitHub - pikahan/react-webpack-demo</a></p>
 <h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul>
 <li><a href="https://blog.csdn.net/weixin_40920953/article/details/88833292" target="_blank" rel="noopener">react项目配置react-hot-loader实现模块热更新_追风Programer的博客-CSDN博客_react-hot-loader</a></li>
@@ -508,23 +508,15 @@ ga('send', 'pageview');
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">json-server</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">faker.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -536,11 +528,15 @@ ga('send', 'pageview');
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">来必力</a>
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">MQTT</a>
+                <a href="javascript:void(0)" class="js-tag color2">nodejs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">来必力</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -549,6 +545,18 @@ ga('send', 'pageview');
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">CSAPP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">MQTT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -561,14 +569,6 @@ ga('send', 'pageview');
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">CSAPP</a>
               </li>
              
               <li class="article-tag-list-item">
