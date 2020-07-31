@@ -16,16 +16,16 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="以下操作均在ubuntu 18.04下完成  前言做这个实验时感觉比前几个实验难了不少,我花了很长的时间查了不少资料才把它完成,但做完后发现这个实验其实只要一步一步慢慢来其实不难,只是花费的时间会长一些">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://www.pikahan.com/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/08/23/《深入理解计算机系统》配套实验4-Cache-lab/1.png">
-<meta property="og:image" content="http://www.pikahan.com/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/08/23/《深入理解计算机系统》配套实验4-Cache-lab/02.png">
-<meta property="og:image" content="http://www.pikahan.com/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/08/23/《深入理解计算机系统》配套实验4-Cache-lab/03.png">
-<meta property="og:image" content="http://www.pikahan.com/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/08/23/《深入理解计算机系统》配套实验4-Cache-lab/04.png">
-<meta property="og:image" content="http://www.pikahan.com/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/08/23/《深入理解计算机系统》配套实验4-Cache-lab/05.png">
+<meta property="og:image" content="http://www.pikahan.com/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/1.png">
+<meta property="og:image" content="http://www.pikahan.com/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/02.png">
+<meta property="og:image" content="http://www.pikahan.com/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/03.png">
+<meta property="og:image" content="http://www.pikahan.com/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/04.png">
+<meta property="og:image" content="http://www.pikahan.com/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/05.png">
 <meta property="og:updated_time" content="2018-08-23T04:13:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《深入理解计算机系统》配套实验4: Cache lab">
 <meta name="twitter:description" content="以下操作均在ubuntu 18.04下完成  前言做这个实验时感觉比前几个实验难了不少,我花了很长的时间查了不少资料才把它完成,但做完后发现这个实验其实只要一步一步慢慢来其实不难,只是花费的时间会长一些">
-<meta name="twitter:image" content="http://www.pikahan.com/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/08/23/《深入理解计算机系统》配套实验4-Cache-lab/1.png">
+<meta name="twitter:image" content="http://www.pikahan.com/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -255,23 +255,23 @@ ga('send', 'pageview');
 </blockquote>
 <p>因为数组为64x64的int,所以4行就会填满一个cache,但是使用4x4分块法的话也不能合理利用cache(cache行能放8个int型),因此我们考虑将8x8的块拆分成4x4的块</p>
 <p>普通的4x4分块法会是这样的(箭头表示读入/写入方向)</p>
-<img src="/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/08/23/《深入理解计算机系统》配套实验4-Cache-lab/1.png">
+<img src="/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/1.png">
 <p>但是这样有个问题,因为每间隔4行,cache行就会被覆盖,所以写入b’的时候回造成严重的缓存浪费,所以我们考虑现将b’放到原c’的位置,也就是b’和c’互换位置,之后再交换回来,如下图所示</p>
-<img src="/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/08/23/《深入理解计算机系统》配套实验4-Cache-lab/02.png">
+<img src="/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/02.png">
 <p>但是使用这种方法仍然是拿不到满分的,还要继续进行优化,我们想办法在存入c’的时候直接将b’复原,并且要合理利用cache</p>
 <p>我们可以使用逆序存储来实现这一点,如图所示</p>
 <ul>
 <li>逆序存放</li>
 </ul>
-<img src="/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/08/23/《深入理解计算机系统》配套实验4-Cache-lab/03.png">
+<img src="/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/03.png">
 <ul>
 <li>逆序读取</li>
 </ul>
-<img src="/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/08/23/《深入理解计算机系统》配套实验4-Cache-lab/04.png">
+<img src="/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/04.png">
 <ul>
 <li>最终</li>
 </ul>
-<img src="/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/08/23/《深入理解计算机系统》配套实验4-Cache-lab/05.png">
+<img src="/2018/08/23/《深入理解计算机系统》配套实验4-Cache-lab/05.png">
 <p>原先存放的是1,2,3,4的数据,逆序存储的话就变成了4,3,2,1。</p>
 <p>那么这样有什么好处呢?</p>
 <ul>
@@ -529,15 +529,15 @@ ga('send', 'pageview');
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">json-server</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">faker.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">

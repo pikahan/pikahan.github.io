@@ -16,17 +16,17 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="以下操作均在ubuntu 18.04下完成   准备工作 下载attack lab 阅读实验指导Writeup(不看的话很多操作都不知道是什么) 了解gdb的使用   参考链接gdbnotes  Part I: Code Injection Attacks">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://www.pikahan.com/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/08/12/《深入理解计算机系统》配套实验3-Attack-lab/1.png">
-<meta property="og:image" content="http://www.pikahan.com/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/08/12/《深入理解计算机系统》配套实验3-Attack-lab/2.png">
-<meta property="og:image" content="http://www.pikahan.com/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/08/12/《深入理解计算机系统》配套实验3-Attack-lab/3.png">
-<meta property="og:image" content="http://www.pikahan.com/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/08/12/《深入理解计算机系统》配套实验3-Attack-lab/4.jpg">
-<meta property="og:image" content="http://www.pikahan.com/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/08/12/《深入理解计算机系统》配套实验3-Attack-lab/5.png">
-<meta property="og:image" content="http://www.pikahan.com/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/08/12/《深入理解计算机系统》配套实验3-Attack-lab/6.png">
+<meta property="og:image" content="http://www.pikahan.com/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/1.png">
+<meta property="og:image" content="http://www.pikahan.com/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/2.png">
+<meta property="og:image" content="http://www.pikahan.com/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/3.png">
+<meta property="og:image" content="http://www.pikahan.com/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/4.jpg">
+<meta property="og:image" content="http://www.pikahan.com/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/5.png">
+<meta property="og:image" content="http://www.pikahan.com/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/6.png">
 <meta property="og:updated_time" content="2018-08-12T05:21:23.579Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《深入理解计算机系统》配套实验3: Attack lab">
 <meta name="twitter:description" content="以下操作均在ubuntu 18.04下完成   准备工作 下载attack lab 阅读实验指导Writeup(不看的话很多操作都不知道是什么) 了解gdb的使用   参考链接gdbnotes  Part I: Code Injection Attacks">
-<meta name="twitter:image" content="http://www.pikahan.com/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/08/12/《深入理解计算机系统》配套实验3-Attack-lab/1.png">
+<meta name="twitter:image" content="http://www.pikahan.com/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -242,7 +242,7 @@ ga('send', 'pageview');
 <ul>
 <li>成功!</li>
 </ul>
-<img src="/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/08/12/《深入理解计算机系统》配套实验3-Attack-lab/1.png" title="phase1">
+<img src="/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/1.png" title="phase1">
 <h2 id="Level-2"><a href="#Level-2" class="headerlink" title="Level 2"></a>Level 2</h2><ul>
 <li>这一关和前面一关的方法差不多的,只是涉及到了参数的传递</li>
 <li>在函数touch2的c表达中可以看到这个函数需要一个unsigned类型的值val,之后会将val和cookie进行比较</li>
@@ -274,7 +274,7 @@ ga('send', 'pageview');
 <li>最后执行<code>./hex2raw &lt; attack.txt | ./ctarget  -q</code></li>
 <li>ok!</li>
 </ul>
-<img src="/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/08/12/《深入理解计算机系统》配套实验3-Attack-lab/2.png" title="phase2">
+<img src="/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/2.png" title="phase2">
 <h2 id="Level3"><a href="#Level3" class="headerlink" title="Level3"></a>Level3</h2><ul>
 <li>这一关的任务和上一关是一样的,但是这一关要传入字符串作为参数</li>
 <li>根据<a href="http://csapp.cs.cmu.edu/3e/bomblab.pdf" target="_blank" rel="noopener">Writeup</a>,这一关要注意的其实就是字符串的存放位置,因为函数hexmatch可能会覆盖掉getbuf的缓冲区</li>
@@ -295,13 +295,13 @@ ga('send', 'pageview');
 <li><code>./hex2raw &lt; attack.txt | ./ctarget -q</code>执行攻击</li>
 <li>ok!</li>
 </ul>
-<img src="/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/08/12/《深入理解计算机系统》配套实验3-Attack-lab/3.png" title="phase3">
+<img src="/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/3.png" title="phase3">
 <h1 id="Part-II-Return-Oriented-Programming"><a href="#Part-II-Return-Oriented-Programming" class="headerlink" title="Part II: Return-Oriented Programming"></a>Part II: Return-Oriented Programming</h1><h2 id="Level-2-1"><a href="#Level-2-1" class="headerlink" title="Level 2"></a>Level 2</h2><ul>
 <li>这一部分的攻击比上一部分要难上不少,因为每次运行的时候栈地址都不同了,并且也不能设置程序计数器为你的攻击代码的起始位置,不然会有段错误。</li>
 <li>因此从这里开始要使用ROP来进行攻击</li>
 </ul>
 <p>详细的ROP攻击方式在<a href="http://csapp.cs.cmu.edu/3e/bomblab.pdf" target="_blank" rel="noopener">Writeup</a>介绍的很清楚了,这里简单说下</p>
-<img src="/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/08/12/《深入理解计算机系统》配套实验3-Attack-lab/4.jpg" title="介绍">
+<img src="/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/4.jpg" title="介绍">
 <ul>
 <li>这里的c3是<code>ret</code>的机器代码,目的是通过<code>ret</code>,不断的从rsp处链式调用Gadget代码</li>
 <li>所以我们的目标很明确,就是找到相应的Gadget代码放在栈帧里</li>
@@ -317,7 +317,7 @@ ga('send', 'pageview');
 <li>输入<code>./hex2raw &lt; attack.txt | ./rtarget -q</code></li>
 <li>ok!</li>
 </ul>
-<img src="/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/08/12/《深入理解计算机系统》配套实验3-Attack-lab/5.png" title="phase4">
+<img src="/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/5.png" title="phase4">
 <h2 id="Level-3"><a href="#Level-3" class="headerlink" title="Level 3"></a>Level 3</h2><ul>
 <li>这一关卡了很久…后来参考了网上的一些方法才做出来</li>
 <li>其实大体思路和之前的方法差不多,就是在栈帧的某一位置放置字符串,通过rsp+offset来获得它</li>
@@ -342,7 +342,7 @@ ga('send', 'pageview');
 <li>输入<code>./hex2raw &lt; attack.txt | ./rtarget -q</code></li>
 <li>ok!</li>
 </ul>
-<img src="/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/08/12/《深入理解计算机系统》配套实验3-Attack-lab/6.png" title="phase5">
+<img src="/2018/08/12/《深入理解计算机系统》配套实验3-Attack-lab/6.png" title="phase5">
       
       
     
@@ -585,15 +585,15 @@ ga('send', 'pageview');
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">json-server</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">faker.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">

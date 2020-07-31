@@ -16,12 +16,12 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="在我使用trojan的时候我发现MacOS系统的终端默认是不走代理的, 要走代理的话需要进行额外的配置, 下面我来记录一下成功让终端走代理的配置过程。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://www.pikahan.com/2020/05/30/Mac上让终端走代理/05/30/Mac上让终端走代理/pic1.png">
+<meta property="og:image" content="http://www.pikahan.com/2020/05/30/Mac上让终端走代理/pic1.png">
 <meta property="og:updated_time" content="2020-06-02T02:36:18.569Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mac上让终端走代理">
 <meta name="twitter:description" content="在我使用trojan的时候我发现MacOS系统的终端默认是不走代理的, 要走代理的话需要进行额外的配置, 下面我来记录一下成功让终端走代理的配置过程。">
-<meta name="twitter:image" content="http://www.pikahan.com/2020/05/30/Mac上让终端走代理/05/30/Mac上让终端走代理/pic1.png">
+<meta name="twitter:image" content="http://www.pikahan.com/2020/05/30/Mac上让终端走代理/pic1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -202,7 +202,7 @@ ga('send', 'pageview');
 <a id="more"></a>
 <h2 id="只对当前终端生效的方式"><a href="#只对当前终端生效的方式" class="headerlink" title="只对当前终端生效的方式"></a>只对当前终端生效的方式</h2><p>如果只想要在当前终端走代理的话, 可以简单的在终端中输入</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> https_proxy=http://127.0.0.1:1081 http_proxy=http://127.0.0.1:1081</span><br></pre></td></tr></table></figure>
-<p>当然这里的端口号要设置成自己代理监听的端口号, 如图所示<br><img src="/2020/05/30/Mac上让终端走代理/05/30/Mac上让终端走代理/pic1.png" title="phase_1"><br>所以我输入的端口号就是1081</p>
+<p>当然这里的端口号要设置成自己代理监听的端口号, 如图所示<br><img src="/2020/05/30/Mac上让终端走代理/pic1.png" title="phase_1"><br>所以我输入的端口号就是1081</p>
 <p>但是使用这种方式的话一旦关闭了终端窗口就会失效了, 再打开要重新输入一遍, 比较麻烦</p>
 <h2 id="修改终端配置文件"><a href="#修改终端配置文件" class="headerlink" title="修改终端配置文件"></a>修改终端配置文件</h2><p>如果不想要每次开启终端都要输入一大串字符的话可以直接修改终端的配置文件</p>
 <p>我已zsh为例, 修改其.zshrc配置文件中的内容即可</p>
@@ -486,15 +486,15 @@ ga('send', 'pageview');
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">json-server</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">faker.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
