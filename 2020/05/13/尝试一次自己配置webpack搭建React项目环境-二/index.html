@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.pikahan.com">
-  <title>Archives: 2018 | Hexo</title>
+  <title>尝试一次自己配置webpack搭建React项目环境(二) | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://www.pikahan.com/archives/2018/page/2/index.html">
+  <meta name="description" content="前言接着上文, 这次来谈谈如何进行一些打包的优化 一些优化现在项目算是能跑起来, 但是只是能跑而已, create-react-app不仅仅做了这些, 还有非常多的优化方案, 下面我来介绍一些常见方案 抽离css因为如果没有抽离css的话, css默认是在js中进行加载的, 这在线上环境中显然是不允许的, 抽离css也是为了在线上环境中更好的利用缓存 安装相关插件1yarn add --dev m">
+<meta name="keywords" content="webpack,React">
+<meta property="og:type" content="article">
+<meta property="og:title" content="尝试一次自己配置webpack搭建React项目环境(二)">
+<meta property="og:url" content="http://www.pikahan.com/2020/05/13/尝试一次自己配置webpack搭建React项目环境-二/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前言接着上文, 这次来谈谈如何进行一些打包的优化 一些优化现在项目算是能跑起来, 但是只是能跑而已, create-react-app不仅仅做了这些, 还有非常多的优化方案, 下面我来介绍一些常见方案 抽离css因为如果没有抽离css的话, css默认是在js中进行加载的, 这在线上环境中显然是不允许的, 抽离css也是为了在线上环境中更好的利用缓存 安装相关插件1yarn add --dev m">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://www.pikahan.com/2020/05/13/尝试一次自己配置webpack搭建React项目环境-二/05/13/尝试一次自己配置webpack搭建React项目环境-二/analyzer.png">
+<meta property="og:updated_time" content="2020-07-31T13:51:22.943Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="尝试一次自己配置webpack搭建React项目环境(二)">
+<meta name="twitter:description" content="前言接着上文, 这次来谈谈如何进行一些打包的优化 一些优化现在项目算是能跑起来, 但是只是能跑而已, create-react-app不仅仅做了这些, 还有非常多的优化方案, 下面我来介绍一些常见方案 抽离css因为如果没有抽离css的话, css默认是在js中进行加载的, 这在线上环境中显然是不允许的, 抽离css也是为了在线上环境中更好的利用缓存 安装相关插件1yarn add --dev m">
+<meta name="twitter:image" content="http://www.pikahan.com/2020/05/13/尝试一次自己配置webpack搭建React项目环境-二/05/13/尝试一次自己配置webpack搭建React项目环境-二/analyzer.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -171,67 +178,233 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-尝试一次自己配置webpack搭建React项目环境-二" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/19/setUpBlog1/" class="archive-article-date">
-  	<time datetime="2018-05-19T07:40:17.855Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/19/setUpBlog1/">从零开始使用Hexo + Github Pages搭建你的个人博客(1)</a>
+    <h1 class="article-title" itemprop="name">
+      尝试一次自己配置webpack搭建React项目环境(二)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/05/13/尝试一次自己配置webpack搭建React项目环境-二/" class="archive-article-date">
+  	<time datetime="2020-05-13T13:44:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>接着上文, 这次来谈谈如何进行一些打包的优化</p>
+<h2 id="一些优化"><a href="#一些优化" class="headerlink" title="一些优化"></a>一些优化</h2><p>现在项目算是能跑起来, 但是只是能跑而已, create-react-app不仅仅做了这些, 还有非常多的优化方案, 下面我来介绍一些常见方案</p>
+<h3 id="抽离css"><a href="#抽离css" class="headerlink" title="抽离css"></a>抽离css</h3><p>因为如果没有抽离css的话, css默认是在js中进行加载的, 这在线上环境中显然是不允许的, 抽离css也是为了在线上环境中更好的利用缓存</p>
+<p>安装相关插件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add --dev mini-css-extract-plugin</span><br></pre></td></tr></table></figure></p>
+<p>在plugins中添加<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.prod.js</span></span><br><span class="line">&#123;</span><br><span class="line">  plugins: [</span><br><span class="line">	  ...,</span><br><span class="line">    <span class="keyword">new</span> MiniCssExtractPlugin(&#123; <span class="comment">// 抽离css</span></span><br><span class="line">      filename: <span class="string">'css/main.[contentHash:8].css'</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="压缩代码"><a href="#压缩代码" class="headerlink" title="压缩代码"></a>压缩代码</h3><p>安装相关插件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add --dev terser-webpack-plugin optimize-css-assets-webpack-plugin</span><br></pre></td></tr></table></figure></p>
+<p>添加优化<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.prod.js</span></span><br><span class="line">&#123;</span><br><span class="line">  optimization: &#123;</span><br><span class="line">    minimizer: [</span><br><span class="line">      <span class="keyword">new</span> TerserWebpackPlugin(&#123;&#125;), <span class="comment">// 压缩JS</span></span><br><span class="line">      <span class="keyword">new</span> OptimizeCssAssetsWebpackPlugin(&#123;&#125;) <span class="comment">// 压缩CSS</span></span><br><span class="line">    ] </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="抽离公共代码"><a href="#抽离公共代码" class="headerlink" title="抽离公共代码"></a>抽离公共代码</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">optimization: &#123;</span><br><span class="line">  splitChunks: &#123;</span><br><span class="line">    chunks: <span class="string">'all'</span>, <span class="comment">// all表示动态模块和非动态模块都进行拆分打包</span></span><br><span class="line">    <span class="comment">// // 分组 其实也不用配置, 默认配置已经配置好了, 具有差不多的效果</span></span><br><span class="line">    <span class="comment">// cacheGroups: &#123;</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">//   // 第三方模块</span></span><br><span class="line">    <span class="comment">//   vendor: &#123;</span></span><br><span class="line">    <span class="comment">//     name: 'vendor',</span></span><br><span class="line">    <span class="comment">//     priority: 1,</span></span><br><span class="line">    <span class="comment">//     test: /node_modules/,</span></span><br><span class="line">    <span class="comment">//     minChunks: 1, // 最少复用过几次</span></span><br><span class="line">    <span class="comment">//   &#125;,</span></span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="comment">//   // 公共模块</span></span><br><span class="line">    <span class="comment">//   common: &#123;</span></span><br><span class="line">    <span class="comment">//     name: 'common',</span></span><br><span class="line">    <span class="comment">//     priority: 0,</span></span><br><span class="line">    <span class="comment">//     minChunks: 2, // 最少复用过几次</span></span><br><span class="line">    <span class="comment">//   &#125;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="开启babel缓存"><a href="#开启babel缓存" class="headerlink" title="开启babel缓存"></a>开启babel缓存</h2><p>因为babel的转换也是比较消耗时间的, 开启缓存后对一些已经转换过的代码可以直接使用缓存的结果, 优化打包速度</p>
+<p>在babel-loader后面加上cacheDirectory即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// webpack.common.js</span><br><span class="line">&#123;</span><br><span class="line">  test: /\.(js|mjs|jsx|ts|tsx)$/,</span><br><span class="line">  loader: &apos;babel-loader?cacheDirectory&apos;,</span><br><span class="line">  include: srcPath</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="多进程打包模式-慎用"><a href="#多进程打包模式-慎用" class="headerlink" title="多进程打包模式(慎用)"></a>多进程打包模式(慎用)</h2><p>使用HappyPack的话可以开启webpack的多进程打包模式, 但是如果项目并不大的话因为进程开销大, 开启反而会减慢打包时间, 所以要慎用</p>
+<p>安装HappyPack<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add --dev happypack</span><br></pre></td></tr></table></figure></p>
+<p>插件配置<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack.common.js</span></span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="comment">// 在指定路径生成一个html文件, 将打包好的js自动插入到body中</span></span><br><span class="line">    <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">      template: path.join(srcPath, <span class="string">'index.html'</span>),</span><br><span class="line">      chunks: [<span class="string">'index'</span>, <span class="string">'vendor'</span>, <span class="string">'common'</span>]</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="keyword">new</span> HappyPack(&#123;</span><br><span class="line">      id: <span class="string">'babel'</span>,</span><br><span class="line">      loaders: [<span class="string">'babel-loader?cacheDirectory'</span>]</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br></pre></td></tr></table></figure></p>
+<p>修改babel-loader, 交由HappyPack进行处理, 注意id要对应插件定义中的id<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  test: <span class="regexp">/\.(js|mjs|jsx|ts|tsx)$/</span>,</span><br><span class="line">  loader: <span class="string">'happypack/loader?id=babel'</span>, <span class="comment">// 原先是babel-loader?cacheDirectory</span></span><br><span class="line">  include: srcPath</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="多进程压缩"><a href="#多进程压缩" class="headerlink" title="多进程压缩"></a>多进程压缩</h2><p>使用ParallelUglifyPlugin可以开启多进程压缩模式, 当然同样要慎用</p>
+<p>安装ParallelUglifyPlugin<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add --dev webpack-parallel-uglify-plugin</span><br></pre></td></tr></table></figure></p>
+<p>插件配置<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">  ...,</span><br><span class="line">  <span class="keyword">new</span> WebpackParallelUglifyPlugin(&#123;</span><br><span class="line">    uglifyJS: &#123;</span><br><span class="line">      output: &#123;</span><br><span class="line">        beautify: <span class="literal">false</span>, <span class="comment">// 最紧凑的输出</span></span><br><span class="line">        comments: <span class="literal">false</span>, <span class="comment">// 删除所有的注释</span></span><br><span class="line">      &#125;,</span><br><span class="line">      compress: &#123;</span><br><span class="line">        drop_console: <span class="literal">true</span>, <span class="comment">// 删除所有的 `console` 语句，可以兼容ie浏览器</span></span><br><span class="line">        collapse_vars: <span class="literal">true</span>, <span class="comment">// 内嵌定义了但是只用到一次的变量</span></span><br><span class="line">        reduce_vars: <span class="literal">true</span>, <span class="comment">// 提取出出现多次但是没有定义成变量去引用的静态值</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">],</span><br></pre></td></tr></table></figure></p>
+<h2 id="热更新"><a href="#热更新" class="headerlink" title="热更新"></a>热更新</h2><p>有新代码的话页面不刷新, 状态不会丢失, 如果网页构建速度慢的话可以使用</p>
+<blockquote>
+<p>顺便一说, 这个功能在create-react-app中也是没有的, 只是觉得好用就加上去了</p>
+</blockquote>
+<p>首先安装下相关loader<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add --dev react-hot-loader</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li><p>在开发模式配置中添加插件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">  <span class="comment">// ...,</span></span><br><span class="line">  <span class="keyword">new</span> webpack.HotModuleReplacementPlugin()</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>devServer配置中开启hot</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">  port: <span class="number">8080</span>,</span><br><span class="line">  hot: <span class="literal">true</span>,</span><br><span class="line">  progress: <span class="literal">true</span>,  <span class="comment">// 显示进度条</span></span><br><span class="line">  contentBase: distPath,</span><br><span class="line">  open: <span class="literal">true</span>,  <span class="comment">// 自动打开浏览器</span></span><br><span class="line">  compress: <span class="literal">true</span>,  <span class="comment">// 压缩</span></span><br><span class="line">  <span class="comment">// proxy: &#123;&#125; 可以在这里设置代理转发</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>.babelrc</code>中添加<code>react-hot-loader/babel</code></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"plugins"</span>: [<span class="string">"react-hot-loader/babel"</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>导出被hot函数返回的根组件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// App.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; hot &#125; <span class="keyword">from</span> <span class="string">'react-hot-loader/root'</span>;</span><br><span class="line"><span class="keyword">const</span> App = <span class="function"><span class="params">()</span> =&gt;</span> &lt;div&gt;...&lt;<span class="regexp">/div&gt;;</span></span><br><span class="line"><span class="regexp">export default hot(App);</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加react-hot-loader的入口</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">entry: &#123;</span><br><span class="line">    index: [<span class="string">'react-hot-loader/patch'</span>, path.join(srcPath, <span class="string">'index'</span>)]</span><br><span class="line">  &#125;,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="抽离很少变更升级的第三方模块"><a href="#抽离很少变更升级的第三方模块" class="headerlink" title="抽离很少变更升级的第三方模块"></a>抽离很少变更升级的第三方模块</h2><p>举个例子, 假如我们有一个React项目, 那么在这个项目推进的过程中, react, react-dom这些依赖库的版本基本上是不会变的, 那么在开发时完全可以将其提前打包好, 这样webpack只需要打包构建项目自己的代码即可, 大大加快了打包速度</p>
+<p>实现这个功能需要<code>DLLPlugin</code>插件和<code>DllReferencePlugin</code>的配合</p>
+<p>首先下载<code>CopyWebpackPlugin</code>一个复制文件的插件, 后面会用到<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add --dev copy-webpack-plugin</span><br></pre></td></tr></table></figure></p>
+<p>建立一个<code>webpack.dll.config.js</code>文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>)</span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">"webpack"</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    vendor: [<span class="string">'react'</span>,<span class="string">'react-dom'</span>] <span class="comment">// 需要打包的模块</span></span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    path: path.resolve(__dirname, <span class="string">'static/js'</span>),</span><br><span class="line">    filename: <span class="string">'[name].dll.js'</span>,</span><br><span class="line">    library: <span class="string">'[name]_library'</span> <span class="comment">// 注意与webpack.DllPlugin中的name保持一致。</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.DllPlugin(&#123;</span><br><span class="line">      path: path.resolve(__dirname, <span class="string">'[name]-manifest.json'</span>),</span><br><span class="line">      name: <span class="string">'[name]_library'</span>,</span><br><span class="line">      context: __dirname</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>同样的, 在package.json中添加script命令<br><code>&quot;dll&quot;: &quot;webpack --config webpack.dll.config.js&quot;</code></p>
+<p>而在<code>webpack.dev.js</code>中呢, 我们要使用<code>DllReferencePlugin</code>插件来引用之后要生成的Dll文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">  <span class="keyword">new</span> webpack.DllReferencePlugin(&#123;</span><br><span class="line">    context: __dirname,</span><br><span class="line">    manifest: <span class="built_in">require</span>(<span class="string">'./vendor-manifest.json'</span>)</span><br><span class="line">  &#125;),</span><br><span class="line">  <span class="keyword">new</span> CopyWebpackPlugin(&#123; <span class="comment">// 拷贝生成的文件到dist目录 这样每次不必手动去cv</span></span><br><span class="line">    patterns: [&#123;</span><br><span class="line">      <span class="keyword">from</span>: path.resolve(__dirname, <span class="string">'./static'</span>),</span><br><span class="line">      to: path.resolve(__dirname, <span class="string">'./dist/static'</span>)</span><br><span class="line">    &#125;]</span><br><span class="line">  &#125;)</span><br><span class="line">],</span><br></pre></td></tr></table></figure></p>
+<p>新建立一个<code>index-dev.html</code>并复制<code>index.html</code>的所有内容, 因为生成的dll文件是需要手动引用的, 所以在<code>head</code>标签下添加<code>script</code>标签<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"static/js/vendor.dll.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"root"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>当然, 记得修改<code>webpack.dev.js</code>中<code>HtmlWebpackPlugin</code>的配置<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">  template: path.join(srcPath, <span class="string">'index-dev.html'</span>),</span><br><span class="line">  name: <span class="string">'index.html'</span>,</span><br><span class="line">  chunks: [<span class="string">'index'</span>, <span class="string">'vendor'</span>, <span class="string">'common'</span>]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>此时, <code>react</code> <code>react-dom</code>就从原本打包的bundle中抽离了出来, 可以看到打包速度确实快了很多</p>
+<h2 id="可视化打包分析工具"><a href="#可视化打包分析工具" class="headerlink" title="可视化打包分析工具"></a>可视化打包分析工具</h2><p>有些时候使用一个打包分析工具更能帮助你优化webpack的打包速度, 而<code>webpack-bundle-analyzer</code>正是一个不错的选择</p>
+<p>安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add --dev webpack-bundle-analyzer</span><br></pre></td></tr></table></figure></p>
+<p>老规矩, 在<code>webpack.dev.js</code>中配置<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plugins: [</span><br><span class="line">  <span class="keyword">new</span> BundleAnalyzerPlugin()</span><br><span class="line">]</span><br></pre></td></tr></table></figure></p>
+<img src="/2020/05/13/尝试一次自己配置webpack搭建React项目环境-二/05/13/尝试一次自己配置webpack搭建React项目环境-二/analyzer.png" title="analyzer">
+<h2 id="最终代码"><a href="#最终代码" class="headerlink" title="最终代码"></a>最终代码</h2><p>最后的代码我放在了github上, 有兴趣的可以看看<br><a href="https://github.com/pikahan/react-webpack-demo" target="_blank" rel="noopener">GitHub - pikahan/react-webpack-demo</a></p>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><ul>
+<li><a href="https://blog.csdn.net/weixin_40920953/article/details/88833292" target="_blank" rel="noopener">react项目配置react-hot-loader实现模块热更新_追风Programer的博客-CSDN博客_react-hot-loader</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/102391654" target="_blank" rel="noopener">webpack实战第三篇（优化webpack） - 知乎</a></li>
+<li><a href="https://webpack.js.org/" target="_blank" rel="noopener">webpack官网</a></li>
+</ul>
+
+      
+      
+    
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Github Pages</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">React</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.pikahan.com/2020/05/13/尝试一次自己配置webpack搭建React项目环境-二/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/05/30/Mac上让终端走代理/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Mac上让终端走代理
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/05/11/尝试一次自己配置webpack搭建React项目环境-一/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">尝试一次自己配置webpack搭建React项目环境(一)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC8zNjU5My8xMzEyOA==">
+<script type="text/javascript">
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+</script>
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+  
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2018/">&laquo; Prev</a><a class="page-number" href="/archives/2018/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -255,8 +428,8 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

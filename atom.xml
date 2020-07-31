@@ -149,6 +149,32 @@
   </entry>
   
   <entry>
+    <title>尝试一次自己配置webpack搭建React项目环境(二)</title>
+    <link href="http://www.pikahan.com/2020/05/13/%E5%B0%9D%E8%AF%95%E4%B8%80%E6%AC%A1%E8%87%AA%E5%B7%B1%E9%85%8D%E7%BD%AEwebpack%E6%90%AD%E5%BB%BAReact%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83-%E4%BA%8C/"/>
+    <id>http://www.pikahan.com/2020/05/13/尝试一次自己配置webpack搭建React项目环境-二/</id>
+    <published>2020-05-13T13:44:34.000Z</published>
+    <updated>2020-07-31T13:51:22.943Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          
+        
+      
+    
+    </summary>
+    
+    
+      <category term="webpack" scheme="http://www.pikahan.com/tags/webpack/"/>
+    
+      <category term="React" scheme="http://www.pikahan.com/tags/React/"/>
+    
+  </entry>
+  
+  <entry>
     <title>尝试一次自己配置webpack搭建React项目环境(一)</title>
     <link href="http://www.pikahan.com/2020/05/11/%E5%B0%9D%E8%AF%95%E4%B8%80%E6%AC%A1%E8%87%AA%E5%B7%B1%E9%85%8D%E7%BD%AEwebpack%E6%90%AD%E5%BB%BAReact%E9%A1%B9%E7%9B%AE%E7%8E%AF%E5%A2%83-%E4%B8%80/"/>
     <id>http://www.pikahan.com/2020/05/11/尝试一次自己配置webpack搭建React项目环境-一/</id>
@@ -455,26 +481,6 @@
       <category term="Github Pages" scheme="http://www.pikahan.com/tags/Github-Pages/"/>
     
       <category term="来必力" scheme="http://www.pikahan.com/tags/%E6%9D%A5%E5%BF%85%E5%8A%9B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从零开始使用Hexo + Github Pages搭建你的个人博客(1)</title>
-    <link href="http://www.pikahan.com/2018/05/19/setUpBlog1/"/>
-    <id>http://www.pikahan.com/2018/05/19/setUpBlog1/</id>
-    <published>2018-05-19T07:40:17.855Z</published>
-    <updated>2018-05-19T08:48:43.898Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;虽然网上关于Github Pages搭建个人博客的教程已经很多了，但是种类繁多，让人眼花缭乱，很多像我一样的小白可能会折腾很久，因此我写下这样一篇较为完整的教程，希望能帮助到一些像我一样的小白。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Hexo" scheme="http://www.pikahan.com/tags/Hexo/"/>
-    
-      <category term="Github Pages" scheme="http://www.pikahan.com/tags/Github-Pages/"/>
     
   </entry>
   
